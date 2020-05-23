@@ -1,0 +1,59 @@
+﻿@page
+@model SamuraiApplicaton.Pages.Samurais.IndexModel
+
+@{
+    ViewData["Title"] = "List of Samurais";
+}
+
+<h1>List of Samurais:</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="./Create">Create New Samurai</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                Wepons:
+            </th>
+            <th>
+                Quotes:
+            </th>
+            <th>
+                Battles:
+            </th>
+            <th>
+                SecretIdentity:
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var samurai in Model.Samurais) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => samurai.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => samurai.Wepon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => samurai.Quotes.Select(x=>x.Id == 1))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => samurai.Battles.Count())
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => samurai.SecretIdentity.RealName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@samurai.Id">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@samurai.Id">Details</a> 
+                <a asp-page="./Delete" asp-route-id="@samurai.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

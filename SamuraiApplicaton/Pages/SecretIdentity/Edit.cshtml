@@ -1,0 +1,42 @@
+﻿@page
+@model SamuraiApplicaton.Pages.SecretIdentity.EditModel
+
+@{
+    ViewData["Title"] = "Edit SecretIdentity";
+}
+
+<h1>Edit:</h1>
+
+<h4>SecretIdentity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 row">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SecretIdentity.Id" />
+            <div class="form-group">
+                <label asp-for="SecretIdentity.RealName" class="control-label"></label>
+                <input asp-for="SecretIdentity.RealName" class="form-control" />
+                <span asp-validation-for="SecretIdentity.RealName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecretIdentity.SamuraiId" class="control-label"></label>
+                <select asp-for="SecretIdentity.SamuraiId" class="form-control" asp-items="@Model.Samurais">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="SecretIdentity.SamuraiId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

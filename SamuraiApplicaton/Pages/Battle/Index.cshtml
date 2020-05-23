@@ -1,0 +1,54 @@
+﻿@page
+@model SamuraiApplicaton.Pages.Battle.IndexModel
+
+@{
+    ViewData["Title"] = "Battles";
+}
+
+<h1>Battles:</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                Start Date:
+            </th>
+            <th>
+                End Date:
+            </th>
+            <th>
+                Place:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var battle in Model.Battles) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => battle.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => battle.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => battle.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => battle.Place)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@battle.Id">Edit</a>
+                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@battle.Id">Details</a>
+                <a class="btn btn-primary" asp-page="./Delete" asp-route-id="@battle.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@page
+@model SamuraiApplicaton.Pages.Quotes.IndexModel
+
+@{
+    ViewData["Title"] = "Quotes";
+}
+
+<h1>Quotes List:</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Text:
+            </th>
+            <th>
+                Samurai Name:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var quote in Model.Quotes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => quote.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => quote.Samurai.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@quote.Id">Edit</a> 
+                <a asp-page="./Delete" asp-route-id="@quote.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

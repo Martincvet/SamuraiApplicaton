@@ -1,0 +1,38 @@
+﻿@page
+@model SamuraiApplicaton.Pages.War.IndexModel
+@{
+    ViewData["Title"] = "War";
+}
+
+<h1>War Statistics:</h1>
+
+<div class="container-fluid">
+    <table class="table table-bordered table-primary table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>Total Samurais</th>
+                <th>Total Quotes</th>
+                <th>Total Battles</th>
+                <th>Total Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.GetTotalSamurais();
+                </td>
+                <td>
+                    @Model.GetTotalBattles();
+                </td>
+                <td>
+                    @Model.GetTotalQuotes();
+                </td>
+                <td>
+                    @Model.GetTotalTimeOfWar();
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

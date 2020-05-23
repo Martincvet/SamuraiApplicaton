@@ -1,0 +1,49 @@
+﻿@page
+@model SamuraiApplicaton.Pages.Samurais.DetailsModel
+
+@{
+    ViewData["Title"] = "Samurais Details";
+}
+
+<h1>Details:</h1>
+
+<div>
+    <h4>Samurai</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samurai.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samurai.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samurai.Wepon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samurai.Wepon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samurai.Battles)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samurai.Battles.Count())
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samurai.Quotes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samurai.Quotes.ToList())
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Samurai.SecretIdentity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Samurai.SecretIdentity.RealName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Samurai.Id">Edit</a> 
+    <a class="btn btn-primary" asp-page="./Index">Back to List</a>
+</div>
